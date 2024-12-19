@@ -1,0 +1,299 @@
+<ClinVarSet ID="92148140">
+    <RecordStatus>current</RecordStatus>
+    <Title>NM_000274.4(OAT):c.1311G&gt;C (p.Leu437Phe) AND Ornithine aminotransferase deficiency</Title>
+    <ReferenceClinVarAssertion ID="57684" DateLastUpdated="2022-04-23" DateCreated="2013-04-04">
+        <ClinVarAccession Acc="RCV000000181" DateUpdated="2022-04-23" DateCreated="2013-04-04" Version="4" Type="RCV"/>
+        <RecordStatus>current</RecordStatus>
+        <Classifications>
+            <GermlineClassification>
+                <ReviewStatus>no assertion criteria provided</ReviewStatus>
+                <Description DateLastEvaluated="1992-02-15" DateLastEvaluated="1">Benign</Description>
+            </GermlineClassification>
+        </Classifications>
+        <Assertion Type="variation to disease"/>
+        <ObservedIn>
+            <Sample>
+                <Origin>germline</Origin>
+                <Species TaxonomyId="9606">human</Species>
+                <AffectedStatus>not provided</AffectedStatus>
+            </Sample>
+            <Method>
+                <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData ID="96275323">
+                <Attribute Type="Description">In an English patient with gyrate atrophy of the choroid and retina (GACR; 258870), Brody et al. (1992) identified 2 mutations on the same allele of the OAT gene: one was a C-to-T transition at nucleotide 1250, resulting in a pro417-to-leu substitution (613349.0012), and the other was a leu437-to-phe (L437F; 613349.0013) substitution. Brody et al. (1992) suggested that L437F is neutral and in linkage disequilibrium with the pathologic P417L mutation.</Attribute>
+                <Citation Type="general">
+                    <ID Source="PubMed">1737786</ID>
+                </Citation>
+            </ObservedData>
+        </ObservedIn>
+        <MeasureSet Type="Variant" ID="158" Acc="VCV000000158" Version="1">
+            <Measure Type="single nucleotide variant" ID="15197">
+                <Name>
+                    <ElementValue Type="Preferred">NM_000274.4(OAT):c.1311G&gt;C (p.Leu437Phe)</ElementValue>
+                </Name>
+                <CanonicalSPDI>NC_000010.11:124397950:C:G</CanonicalSPDI>
+                <AttributeSet>
+                    <Attribute Accession="NM_000274" Version="4" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq" MANESelect="true">NM_000274.4:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322965" Version="2" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq">NM_001322965.2:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322966" Version="2" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq">NM_001322966.2:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322967" Version="2" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq">NM_001322967.2:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322968" Version="2" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq">NM_001322968.2:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322969" Version="2" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq">NM_001322969.2:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322970" Version="2" Change="c.1311G&gt;C" Type="HGVS, coding, RefSeq">NM_001322970.2:c.1311G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322974" Version="2" Change="c.711G&gt;C" Type="HGVS, coding, RefSeq">NM_001322974.2:c.711G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001171814" Version="2" Change="c.897G&gt;C" Type="HGVS, coding, RefSeq">NM_001171814.2:c.897G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322971" Version="2" Change="c.990G&gt;C" Type="HGVS, coding, RefSeq">NM_001322971.2:c.990G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="LRG_685" Type="HGVS, genomic, LRG">LRG_685:g.26000G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NG_008861" Version="1" Change="g.26000G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_008861.1:g.26000G&gt;C</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NC_000010" Version="11" Change="g.124397951C&gt;G" Type="HGVS, genomic, top level" integerValue="38">NC_000010.11:g.124397951C&gt;G</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NC_000010" Version="10" Change="g.126086520C&gt;G" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000010.10:g.126086520C&gt;G</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="HGVS, protein"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="P04181" Change="p.Leu437Phe" Type="HGVS, protein">P04181:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309903" Version="1" Change="p.Leu237Phe" Type="HGVS, protein, RefSeq">NP_001309903.1:p.Leu237Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001165285" Version="1" Change="p.Leu299Phe" Type="HGVS, protein, RefSeq">NP_001165285.1:p.Leu299Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309900" Version="1" Change="p.Leu330Phe" Type="HGVS, protein, RefSeq">NP_001309900.1:p.Leu330Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_000265" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_000265.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309894" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_001309894.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309895" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_001309895.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309896" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_001309896.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309897" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_001309897.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309898" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_001309898.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_001309899" Version="1" Change="p.Leu437Phe" Type="HGVS, protein, RefSeq">NP_001309899.1:p.Leu437Phe</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_000274.4:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001171814.2:c.897G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322965.2:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322966.2:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322967.2:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322968.2:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322969.2:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322970.2:c.1311G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322971.2:c.990G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                    <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322974.2:c.711G&gt;C" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="ProteinChange1LetterCode">L237F</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="ProteinChange1LetterCode">L299F</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="ProteinChange1LetterCode">L330F</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="ProteinChange1LetterCode">L437F</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="ProteinChange3LetterCode">LEU437PHE</Attribute>
+                </AttributeSet>
+                <CytogeneticLocation>10q26.13</CytogeneticLocation>
+                <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="10" Accession="NC_000010.11" start="124397951" stop="124397951" display_start="124397951" display_stop="124397951" variantLength="1" positionVCF="124397951" referenceAlleleVCF="C" alternateAlleleVCF="G"/>
+                <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="10" Accession="NC_000010.10" start="126086520" stop="126086520" display_start="126086520" display_stop="126086520" variantLength="1" positionVCF="126086520" referenceAlleleVCF="C" alternateAlleleVCF="G"/>
+                <MeasureRelationship Type="within single gene">
+                    <Name>
+                        <ElementValue Type="Preferred">ornithine aminotransferase</ElementValue>
+                    </Name>
+                    <Symbol>
+                        <ElementValue Type="Preferred">OAT</ElementValue>
+                    </Symbol>
+                    <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="10" Accession="NC_000010.11" start="124397303" stop="124418923" display_start="124397303" display_stop="124418923" Strand="-"/>
+                    <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="10" Accession="NC_000010.10" start="126085871" stop="126107544" display_start="126085871" display_stop="126107544" variantLength="21674" Strand="-"/>
+                    <XRef ID="4942" DB="Gene"/>
+                    <XRef Type="MIM" ID="613349" DB="OMIM"/>
+                    <XRef ID="HGNC:8091" DB="HGNC"/>
+                </MeasureRelationship>
+                <XRef ID="P04181#VAR_000586" DB="UniProtKB"/>
+                <XRef Type="Allelic variant" ID="613349.0013" DB="OMIM"/>
+                <XRef Type="rs" ID="1800456" DB="dbSNP"/>
+            </Measure>
+            <Name>
+                <ElementValue Type="Preferred">NM_000274.4(OAT):c.1311G&gt;C (p.Leu437Phe)</ElementValue>
+            </Name>
+            <XRef ID="CA113946" DB="ClinGen"/>
+        </MeasureSet>
+        <TraitSet Type="Disease" ID="59">
+            <Trait ID="1408" Type="Disease">
+                <Name>
+                    <ElementValue Type="Preferred">Ornithine aminotransferase deficiency</ElementValue>
+                    <XRef ID="Ornithine+aminotransferase+deficiency/5411" DB="Genetic Alliance"/>
+                    <XRef ID="MONDO:0009796" DB="MONDO"/>
+                    <XRef ID="276426004" DB="SNOMED CT"/>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">OAT deficiency</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Ornithine ketoacid aminotransferase deficiency</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Gyrate atrophy</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">OKT deficiency</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Hyperornithinemia with gyrate atrophy of choroid and retina</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Girate atrophy of the retina</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Gyrate atrophy of choroid and retina</ElementValue>
+                </Name>
+                <Symbol>
+                    <ElementValue Type="Preferred">GACR</ElementValue>
+                    <XRef Type="MIM" ID="258870" DB="OMIM"/>
+                </Symbol>
+                <Symbol>
+                    <ElementValue Type="Alternate">HOGA</ElementValue>
+                    <XRef Type="MIM" ID="258870" DB="OMIM"/>
+                </Symbol>
+                <XRef ID="MONDO:0009796" DB="MONDO"/>
+                <XRef ID="C0018425" DB="MedGen"/>
+                <XRef ID="414" DB="Orphanet"/>
+                <XRef Type="MIM" ID="258870" DB="OMIM"/>
+            </Trait>
+        </TraitSet>
+    </ReferenceClinVarAssertion>
+    <ClinVarAssertion ID="20324">
+        <ClinVarSubmissionID localKey="613349.0013_ORNITHINE AMINOTRANSFERASE POLYMORPHISM" submitter="OMIM" submitterDate="2018-02-01" title="OAT, LEU437PHE_ORNITHINE AMINOTRANSFERASE POLYMORPHISM"/>
+        <ClinVarAccession Acc="SCV000020324" DateCreated="2013-04-04" DateUpdated="2018-02-04" Version="3" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary"/>
+        <RecordStatus>current</RecordStatus>
+        <Classification DateLastEvaluated="1992-02-15">
+            <ReviewStatus>no assertion criteria provided</ReviewStatus>
+            <GermlineClassification>Benign</GermlineClassification>
+        </Classification>
+        <Assertion Type="variation to disease"/>
+        <ExternalID DB="OMIM" ID="613349.0013" Type="Allelic variant"/>
+        <ObservedIn>
+            <Sample>
+                <Origin>germline</Origin>
+                <Species>human</Species>
+                <AffectedStatus>not provided</AffectedStatus>
+            </Sample>
+            <Method>
+                <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData>
+                <Attribute Type="Description">In an English patient with gyrate atrophy of the choroid and retina (GACR; 258870), Brody et al. (1992) identified 2 mutations on the same allele of the OAT gene: one was a C-to-T transition at nucleotide 1250, resulting in a pro417-to-leu substitution (613349.0012), and the other was a leu437-to-phe (L437F; 613349.0013) substitution. Brody et al. (1992) suggested that L437F is neutral and in linkage disequilibrium with the pathologic P417L mutation.</Attribute>
+                <Citation>
+                    <ID Source="PubMed">1737786</ID>
+                </Citation>
+                <XRef DB="OMIM" ID="258870" Type="MIM"/>
+            </ObservedData>
+        </ObservedIn>
+        <MeasureSet Type="Variant">
+            <Measure Type="Variation">
+                <Name>
+                    <ElementValue Type="Preferred">OAT, LEU437PHE</ElementValue>
+                </Name>
+                <AttributeSet>
+                    <Attribute Type="NonHGVS">LEU437PHE</Attribute>
+                </AttributeSet>
+                <MeasureRelationship Type="variant in gene">
+                    <Symbol>
+                        <ElementValue Type="Preferred">OAT</ElementValue>
+                    </Symbol>
+                </MeasureRelationship>
+                <XRef DB="OMIM" ID="613349.0013" Type="Allelic variant"/>
+            </Measure>
+        </MeasureSet>
+        <TraitSet Type="Disease">
+            <Trait Type="Disease">
+                <Name>
+                    <ElementValue Type="Preferred">ORNITHINE AMINOTRANSFERASE POLYMORPHISM</ElementValue>
+                </Name>
+            </Trait>
+        </TraitSet>
+    </ClinVarAssertion>
+</ClinVarSet>
