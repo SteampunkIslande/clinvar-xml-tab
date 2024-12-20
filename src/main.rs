@@ -7,12 +7,10 @@ pub mod utils;
 use quick_xml::events::{BytesStart, Event};
 use quick_xml::{Reader, Writer};
 
-use quick_xml::de::Deserializer;
-
-use serde::Deserialize;
 use std::io::BufRead;
 
 pub mod clinvar_set_serde;
+
 use clinvar_set_serde::ClinVarSet;
 
 // Thanks https://capnfabs.net/posts/parsing-huge-xml-quickxml-rust-serde/
@@ -74,9 +72,8 @@ fn main() -> Result<(), error::ClinvarXMLTabError> {
                             read_to_end_into_buffer(&mut reader, &e, &mut junk_buf).unwrap();
                         let str = std::str::from_utf8(&clinvar_set_bytes).unwrap();
                         // deserialize from buffer
-                        let mut deserializer = Deserializer::from_str(str);
                         let clinvar_set: Result<ClinVarSet, error::ClinvarXMLTabError> =
-                            Deserialize::deserialize(&mut deserializer).map_err(|e| e.into());
+                            clinvar_set_serde::ClinVarSet::new_from_str(str);
                         if let Ok(clinvar_set) = clinvar_set {
                             // write to output
                             let chrom = clinvar_set.print_chrom(&args.genome());
@@ -84,19 +81,36 @@ fn main() -> Result<(), error::ClinvarXMLTabError> {
                             let ref_allele = clinvar_set.print_ref(&args.genome());
                             let alt_allele = clinvar_set.print_alt(&args.genome());
                             match (chrom, pos, ref_allele, alt_allele) {
-                                (Some(chrom), Some(pos), Some(ref_allele), Some(alt_allele)) => {
+                                (
+                                    Some(ref chrom),
+                                    Some(pos),
+                                    Some(ref_allele),
+                                    Some(alt_allele),
+                                ) => {
                                     out_stream.write(
-                                        format!(
-                                            "chr{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n",
-                                            chrom,
-                                            pos,
-                                            ".",
-                                            ref_allele,
-                                            alt_allele,
-                                            ".",
-                                            "PASS",
-                                            clinvar_set.print_info()
-                                        )
+                                        (match chrom.as_str() {
+                                            "MT" => format!(
+                                                "chrM\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n",
+                                                pos,
+                                                ".",
+                                                ref_allele,
+                                                alt_allele,
+                                                ".",
+                                                "PASS",
+                                                clinvar_set.print_info()
+                                            ),
+                                            _ => format!(
+                                                "chr{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n",
+                                                chrom,
+                                                pos,
+                                                ".",
+                                                ref_allele,
+                                                alt_allele,
+                                                ".",
+                                                "PASS",
+                                                clinvar_set.print_info()
+                                            ),
+                                        })
                                         .as_bytes(),
                                     )?;
                                     total_counter += 1;

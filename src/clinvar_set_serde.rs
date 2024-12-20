@@ -1,3 +1,5 @@
+use super::error::ClinvarXMLTabError;
+use quick_xml::de::Deserializer;
 use serde::Deserialize;
 
 use crate::cli::Genome;
@@ -5,105 +7,112 @@ use crate::cli::Genome;
 #[derive(Debug, Deserialize)]
 pub struct ClinVarSet {
     #[serde(rename = "ReferenceClinVarAssertion")]
-    pub reference_clinvar_assertion: ReferenceClinVarAssertion,
+    reference_clinvar_assertion: ReferenceClinVarAssertion,
 
     #[serde(rename = "Title")]
-    pub title: String,
+    title: String,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct ReferenceClinVarAssertion {
+struct ReferenceClinVarAssertion {
     #[serde(rename = "@ID")]
-    pub id: String,
+    id: String,
 
     #[serde(rename = "@DateLastUpdated")]
-    pub date_last_updated: String,
+    date_last_updated: String,
 
     #[serde(rename = "@DateCreated")]
-    pub date_created: String,
+    date_created: String,
 
     #[serde(rename = "ClinVarAccession")]
-    pub clinvar_accession: ClinVarAccession,
+    clinvar_accession: ClinVarAccession,
 
     #[serde(rename = "Classifications")]
-    pub classifications: Classifications,
+    classifications: Classifications,
 
     #[serde(rename = "MeasureSet")]
-    pub measure_set: MeasureSet,
+    measure_set: MeasureSet,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct Classifications {
+struct Classifications {
     #[serde(rename = "GermlineClassification")]
-    pub germline: Vec<GermlineClassification>,
+    germline: Vec<GermlineClassification>,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct ClinVarAccession {
+struct ClinVarAccession {
     #[serde(rename = "@Acc")]
-    pub rcv: String,
+    rcv: String,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct GermlineClassification {
+struct GermlineClassification {
     // #[serde(rename = "Description")]
-    // pub description: String,
+    //  description: String,
     #[serde(rename = "Description")]
-    pub description: GermlineClassificationDescription,
+    description: GermlineClassificationDescription,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct GermlineClassificationDescription {
+struct GermlineClassificationDescription {
     #[serde(rename = "$text")]
-    pub description: String,
+    description: String,
 
     #[serde(rename = "@DateLastEvaluated")]
-    pub date_last_evaluated: String,
+    date_last_evaluated: String,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct MeasureSet {
+struct MeasureSet {
     #[serde(rename = "Measure")]
-    pub measure: Vec<Measure>,
+    measure: Vec<Measure>,
 
     #[serde(rename = "@Acc")]
-    pub acc: String,
+    acc: String,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct Measure {
+struct Measure {
     #[serde(rename = "@Type")]
-    pub measure_type: String,
+    measure_type: String,
 
     #[serde(rename = "@ID")]
-    pub id: String,
+    id: String,
 
     #[serde(rename = "SequenceLocation")]
-    pub sequence_location: Vec<Option<SequenceLocation>>,
+    sequence_location: Vec<Option<SequenceLocation>>,
 }
 
 #[derive(Debug, Deserialize)]
-pub struct SequenceLocation {
+struct SequenceLocation {
     #[serde(rename = "@Assembly")]
-    pub assembly: String,
+    assembly: String,
 
     #[serde(rename = "@Chr")]
-    pub chr: String,
+    chr: String,
 
     #[serde(rename = "@Accession")]
-    pub accession: String,
+    accession: String,
 
     #[serde(rename = "@positionVCF")]
-    pub position_vcf: String,
+    position_vcf: String,
 
     #[serde(rename = "@referenceAlleleVCF")]
-    pub reference_allele_vcf: String,
+    reference_allele_vcf: String,
 
     #[serde(rename = "@alternateAlleleVCF")]
-    pub alternate_allele_vcf: String,
+    alternate_allele_vcf: String,
 }
 
 impl ClinVarSet {
+    pub fn new_from_str(s: &str) -> Result<Self, ClinvarXMLTabError> {
+        let mut deserializer = Deserializer::from_str(s);
+        let clinvar_set: Result<Self, ClinvarXMLTabError> =
+            Deserialize::deserialize(&mut deserializer).map_err(|e| e.into());
+        clinvar_set
+    }
+
     pub fn print_chrom(&self, g: &Genome) -> Option<String> {
         let mut chrom = None;
         for measure in &self.reference_clinvar_assertion.measure_set.measure {
