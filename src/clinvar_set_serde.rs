@@ -113,7 +113,7 @@ impl ClinVarSet {
         clinvar_set
     }
 
-    pub fn print_chrom(&self, g: &Genome) -> Option<String> {
+    pub fn get_chrom(&self, g: &Genome) -> Option<&str> {
         let mut chrom = None;
         for measure in &self.reference_clinvar_assertion.measure_set.measure {
             for sequence_location in &measure.sequence_location {
@@ -121,12 +121,12 @@ impl ClinVarSet {
                     match g {
                         Genome::Hg19 => {
                             if sequence_location.assembly == "GRCh37" {
-                                chrom = Some(sequence_location.chr.clone());
+                                chrom = Some(sequence_location.chr.as_ref());
                             }
                         }
                         Genome::Hg38 => {
                             if sequence_location.assembly == "GRCh38" {
-                                chrom = Some(sequence_location.chr.clone());
+                                chrom = Some(sequence_location.chr.as_ref());
                             }
                         }
                     }
@@ -136,7 +136,7 @@ impl ClinVarSet {
         chrom
     }
 
-    pub fn print_pos(&self, g: &Genome) -> Option<String> {
+    pub fn get_pos(&self, g: &Genome) -> Option<&str> {
         let mut pos = None;
         for measure in &self.reference_clinvar_assertion.measure_set.measure {
             for sequence_location in &measure.sequence_location {
@@ -144,12 +144,12 @@ impl ClinVarSet {
                     match g {
                         Genome::Hg19 => {
                             if sequence_location.assembly == "GRCh37" {
-                                pos = Some(sequence_location.position_vcf.clone());
+                                pos = Some(sequence_location.position_vcf.as_ref());
                             }
                         }
                         Genome::Hg38 => {
                             if sequence_location.assembly == "GRCh38" {
-                                pos = Some(sequence_location.position_vcf.clone());
+                                pos = Some(sequence_location.position_vcf.as_ref());
                             }
                         }
                     }
@@ -159,7 +159,7 @@ impl ClinVarSet {
         pos
     }
 
-    pub fn print_ref(&self, g: &Genome) -> Option<String> {
+    pub fn get_ref(&self, g: &Genome) -> Option<&str> {
         let mut ref_allele = None;
         for measure in &self.reference_clinvar_assertion.measure_set.measure {
             for sequence_location in &measure.sequence_location {
@@ -167,12 +167,12 @@ impl ClinVarSet {
                     match g {
                         Genome::Hg19 => {
                             if sequence_location.assembly == "GRCh37" {
-                                ref_allele = Some(sequence_location.reference_allele_vcf.clone());
+                                ref_allele = Some(sequence_location.reference_allele_vcf.as_ref());
                             }
                         }
                         Genome::Hg38 => {
                             if sequence_location.assembly == "GRCh38" {
-                                ref_allele = Some(sequence_location.reference_allele_vcf.clone());
+                                ref_allele = Some(sequence_location.reference_allele_vcf.as_ref());
                             }
                         }
                     }
@@ -182,7 +182,7 @@ impl ClinVarSet {
         ref_allele
     }
 
-    pub fn print_alt(&self, g: &Genome) -> Option<String> {
+    pub fn get_alt(&self, g: &Genome) -> Option<&str> {
         let mut alt_allele = None;
         for measure in &self.reference_clinvar_assertion.measure_set.measure {
             for sequence_location in &measure.sequence_location {
@@ -190,12 +190,12 @@ impl ClinVarSet {
                     match g {
                         Genome::Hg19 => {
                             if sequence_location.assembly == "GRCh37" {
-                                alt_allele = Some(sequence_location.alternate_allele_vcf.clone());
+                                alt_allele = Some(sequence_location.alternate_allele_vcf.as_ref());
                             }
                         }
                         Genome::Hg38 => {
                             if sequence_location.assembly == "GRCh38" {
-                                alt_allele = Some(sequence_location.alternate_allele_vcf.clone());
+                                alt_allele = Some(sequence_location.alternate_allele_vcf.as_ref());
                             }
                         }
                     }
@@ -205,34 +205,49 @@ impl ClinVarSet {
         alt_allele
     }
 
-    pub fn print_rcv(&self) -> String {
-        self.reference_clinvar_assertion
-            .clinvar_accession
-            .rcv
-            .clone()
+    pub fn get_rcv(&self) -> &str {
+        &self.reference_clinvar_assertion.clinvar_accession.rcv
     }
 
-    pub fn print_date_last_evaluated(&self) -> String {
-        self.reference_clinvar_assertion.classifications.germline[0]
+    pub fn get_date_last_evaluated(&self) -> &str {
+        &self.reference_clinvar_assertion.classifications.germline[0]
             .description
             .date_last_evaluated
-            .clone()
     }
 
-    pub fn print_description(&self) -> String {
-        self.reference_clinvar_assertion.classifications.germline[0]
+    pub fn get_description(&self) -> &str {
+        &self.reference_clinvar_assertion.classifications.germline[0]
             .description
             .description
-            .clone()
     }
-    pub fn print_info(&self) -> String {
-        [
-            format!("CLNACC={}", self.print_rcv()),
-            format!(
-                "CLNSIG={}",
-                self.print_description().to_lowercase().replace(" ", "_")
-            ),
-        ]
-        .join(";")
+
+    pub fn get_repr(&self, g: &Genome) -> Option<String> {
+        match (
+            self.get_chrom(g),
+            self.get_pos(g),
+            self.get_ref(g),
+            self.get_alt(g),
+        ) {
+            (Some(chrom), Some(pos), Some(ref_allele), Some(alt_allele)) => match chrom {
+                "MT" => Some(format!(
+                    "chrM\t{}\t{}\t{}\t{}\t{}\n",
+                    pos,
+                    ref_allele,
+                    alt_allele,
+                    self.get_rcv(),
+                    self.get_description()
+                )),
+                _ => Some(format!(
+                    "chr{}\t{}\t{}\t{}\t{}\t{}\n",
+                    chrom,
+                    pos,
+                    ref_allele,
+                    alt_allele,
+                    self.get_rcv(),
+                    self.get_description()
+                )),
+            },
+            _ => None,
+        }
     }
 }

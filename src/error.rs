@@ -19,6 +19,9 @@ pub enum ClinvarXMLTabError {
     #[error(transparent)]
     SerdeError(#[from] quick_xml::DeError),
 
+    #[error("No record")]
+    NoRecord,
+
     #[error("Unknown error")]
     Unknown,
 }

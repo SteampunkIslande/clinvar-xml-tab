@@ -11,6 +11,8 @@ use std::io::BufRead;
 
 pub mod clinvar_set_serde;
 
+use cli::Genome;
+
 use clinvar_set_serde::ClinVarSet;
 
 // Thanks https://capnfabs.net/posts/parsing-huge-xml-quickxml-rust-serde/
@@ -45,6 +47,25 @@ fn read_to_end_into_buffer<R: BufRead>(
     }
 }
 
+fn csv_write_header(out_stream: &mut dyn std::io::Write) -> Result<(), error::ClinvarXMLTabError> {
+    out_stream.write("CHROM\tPOS\tREF\tALT\tCLNACC\tCLNSIG\n".as_bytes())?;
+    Ok(())
+}
+
+fn csv_write_record(
+    out_stream: &mut Box<dyn std::io::Write + Send>,
+    record: Option<&ClinVarSet>,
+    genome: &Genome,
+) -> Result<(), error::ClinvarXMLTabError> {
+    if let Some(rec) = record {
+        if let Some(rec_repr) = rec.get_repr(genome) {
+            out_stream.write(rec_repr.as_bytes())?;
+            return Ok(());
+        }
+    }
+    Err(error::ClinvarXMLTabError::NoRecord)
+}
+
 fn main() -> Result<(), error::ClinvarXMLTabError> {
     let args = cli::Command::parse();
 
@@ -60,6 +81,8 @@ fn main() -> Result<(), error::ClinvarXMLTabError> {
     let mut total_counter = 0;
     let mut ignored_counter = 0;
 
+    csv_write_header(&mut out_stream)?;
+
     loop {
         match reader.read_event_into(&mut buf) {
             Err(e) => panic!("Error at position {}: {:?}", reader.buffer_position(), e),
@@ -69,55 +92,20 @@ fn main() -> Result<(), error::ClinvarXMLTabError> {
                     b"ClinVarSet" => {
                         // load entire tag into buffer
                         let clinvar_set_bytes =
-                            read_to_end_into_buffer(&mut reader, &e, &mut junk_buf).unwrap();
-                        let str = std::str::from_utf8(&clinvar_set_bytes).unwrap();
-                        // deserialize from buffer
-                        let clinvar_set: Result<ClinVarSet, error::ClinvarXMLTabError> =
-                            clinvar_set_serde::ClinVarSet::new_from_str(str);
-                        if let Ok(clinvar_set) = clinvar_set {
-                            // write to output
-                            let chrom = clinvar_set.print_chrom(&args.genome());
-                            let pos = clinvar_set.print_pos(&args.genome());
-                            let ref_allele = clinvar_set.print_ref(&args.genome());
-                            let alt_allele = clinvar_set.print_alt(&args.genome());
-                            match (chrom, pos, ref_allele, alt_allele) {
-                                (
-                                    Some(ref chrom),
-                                    Some(pos),
-                                    Some(ref_allele),
-                                    Some(alt_allele),
-                                ) => {
-                                    out_stream.write(
-                                        (match chrom.as_str() {
-                                            "MT" => format!(
-                                                "chrM\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n",
-                                                pos,
-                                                ".",
-                                                ref_allele,
-                                                alt_allele,
-                                                ".",
-                                                "PASS",
-                                                clinvar_set.print_info()
-                                            ),
-                                            _ => format!(
-                                                "chr{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n",
-                                                chrom,
-                                                pos,
-                                                ".",
-                                                ref_allele,
-                                                alt_allele,
-                                                ".",
-                                                "PASS",
-                                                clinvar_set.print_info()
-                                            ),
-                                        })
-                                        .as_bytes(),
-                                    )?;
-                                    total_counter += 1;
-                                }
-                                _ => {
-                                    ignored_counter += 1;
-                                }
+                            read_to_end_into_buffer(&mut reader, &e, &mut junk_buf)
+                                .expect("Unrecoverable error while reading XML file!");
+                        if let Ok(str) = std::str::from_utf8(&clinvar_set_bytes) {
+                            // deserialize from buffer
+                            let clinvar_set: Result<ClinVarSet, error::ClinvarXMLTabError> =
+                                clinvar_set_serde::ClinVarSet::new_from_str(str);
+                            if let Ok(_) = csv_write_record(
+                                &mut out_stream,
+                                clinvar_set.ok().as_ref(),
+                                &args.genome(),
+                            ) {
+                                total_counter += 1;
+                            } else {
+                                ignored_counter += 1;
                             }
                         } else {
                             ignored_counter += 1;
