@@ -4,13 +4,14 @@ pub mod cli;
 pub mod error;
 pub mod utils;
 
+use clap_complete::Shell;
+use error::ClinvarXMLTabError;
 use quick_xml::events::{BytesStart, Event};
 use quick_xml::{Reader, Writer};
 
 use clap_complete::aot::generate;
 
 use std::io::BufRead;
-use std::str::FromStr;
 
 // Thanks https://capnfabs.net/posts/parsing-huge-xml-quickxml-rust-serde/
 fn read_to_end_into_buffer<R: BufRead>(
@@ -73,6 +74,70 @@ fn write_flatten_node_to(
     Ok(())
 }
 
+trait EventHandler {
+    fn handle(
+        &mut self,
+        node: &roxmltree::Node,
+        current_path: &mut Vec<String>,
+        depth: i32,
+    ) -> Result<(), ClinvarXMLTabError>;
+}
+
+struct BasicNodeWriter<T: std::io::Write> {
+    writer: T,
+}
+
+impl<T: std::io::Write> BasicNodeWriter<T> {
+    pub fn new(writer: T) -> Self {
+        Self { writer }
+    }
+}
+
+impl<T: std::io::Write> EventHandler for BasicNodeWriter<T> {
+    fn handle(
+        &mut self,
+        node: &roxmltree::Node,
+        current_path: &mut Vec<String>,
+        depth: i32,
+    ) -> Result<(), ClinvarXMLTabError> {
+        self.writer.write(
+            format!(
+                "{}{} - {} - {}\n",
+                "\t".repeat(depth as usize),
+                current_path.join("."),
+                node.text().unwrap_or("No text"),
+                if node.attributes().len() == 0 {
+                    "No attributes".to_string()
+                } else {
+                    node.attributes()
+                        .map(|f| format!("{}={}", f.name(), f.value()))
+                        .collect::<Vec<String>>()
+                        .join(" ")
+                }
+            )
+            .as_bytes(),
+        )?;
+        Ok(())
+    }
+}
+
+fn node_flatten_treat(
+    node: &roxmltree::Node,
+    current_path: &mut Vec<String>,
+    handler: &mut impl EventHandler,
+    depth: i32,
+) -> Result<(), error::ClinvarXMLTabError> {
+    if node.is_element() {
+        current_path.push(node.tag_name().name().to_string());
+        handler.handle(node, current_path, depth)?;
+    }
+    for child in node.children() {
+        node_flatten_treat(&child, current_path, handler, depth + 1)?;
+    }
+    current_path.pop();
+    Ok(())
+}
+
 fn convert(params: &cli::Cli, _subparams: &cli::Convert) -> Result<(), error::ClinvarXMLTabError> {
     let in_stream = utils::file_reader(params.input())?;
     let mut out_stream = utils::file_writer(params.output())?;
@@ -99,11 +164,9 @@ fn convert(params: &cli::Cli, _subparams: &cli::Convert) -> Result<(), error::Cl
                     let doc: roxmltree::Document = roxmltree::Document::parse(&str)?;
 
                     let mut current_path = vec![];
-                    write_flatten_node_to(
-                        &doc.root(),
-                        &mut current_path,
-                        writer.into_inner().expect("Cannot get writer"),
-                    )?;
+                    let mut handler =
+                        BasicNodeWriter::new(writer.into_inner().expect("Cannot get writer"));
+                    node_flatten_treat(&doc.root(), &mut current_path, &mut handler, -1)?;
                     break;
                 }
                 _ => (),
@@ -165,25 +228,29 @@ fn auto_complete(
     let command_name = command.get_name().to_string();
     let gen = subparams.shell();
 
+    let output_dir = match gen {
+        Shell::Zsh => {
+            if let Some(d) =
+                home::home_dir().and_then(|d| Some(d.join(".oh-my-zsh").join("completions")))
+            {
+                std::fs::DirBuilder::new().recursive(true).create(&d)?;
+                d
+            } else {
+                std::env::current_dir()?
+            }
+        }
+        _ => std::env::current_dir()?,
+    };
+
     let mut output: Box<dyn std::io::Write> = match gen {
         clap_complete::Shell::Zsh => Box::new(std::fs::File::create(
-            home::home_dir()
-                .and_then(|h| {
-                    Some(
-                        h.join(".oh-my-zsh")
-                            .join("completions")
-                            .join("_clinvar-xml-tab_ZSH"),
-                    )
-                })
-                .unwrap_or(
-                    std::path::PathBuf::from_str("_clinvar-xml-tab_ZSH")
-                        .expect("Invalid file name"),
-                ),
+            output_dir.join("_clinvar-xml-tab_ZSH"),
         )?),
         _ => Box::new(std::io::stdout()),
     };
-
+    eprintln!("Writing completions for {:?}...", &gen);
     generate(gen, &mut command, command_name.to_string(), &mut output);
+    eprintln!("Done!");
     Ok(())
 }
 
