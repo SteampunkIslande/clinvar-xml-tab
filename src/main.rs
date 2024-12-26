@@ -1,11 +1,12 @@
-use clap::Parser;
-
 pub mod cli;
 pub mod error;
-pub mod utils;
+
+use clap::Parser;
+use clinvar_xml_tab::utils;
 
 use clap_complete::Shell;
 use error::ClinvarXMLTabError;
+
 use quick_xml::events::{BytesStart, Event};
 use quick_xml::{Reader, Writer};
 
