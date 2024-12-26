@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use clap_complete::Shell;
 
 #[derive(clap::Parser, std::fmt::Debug)]
 #[command(
@@ -11,6 +11,10 @@ pub struct Cli {
     /// Input XML file
     #[clap(short = 'i', long = "input")]
     input: Option<std::path::PathBuf>,
+
+    /// Output TSV file
+    #[clap(short = 'o', long = "output")]
+    output: Option<std::path::PathBuf>,
 
     /// Genome build
     #[clap(flatten)]
@@ -29,21 +33,24 @@ pub enum Command {
     /// Only print out the very first XML element of input
     #[clap(name = "debug")]
     Debug(Debug),
+
+    /// Generate Autocompletion
+    #[clap(name = "autocomplete")]
+    AutoComplete(AutoComplete),
 }
 
 #[derive(clap::Parser, Debug)]
-pub struct Convert {
-    /// Output TSV file
-    #[clap(short = 'o', long = "output")]
-    output: Option<std::path::PathBuf>,
+pub struct AutoComplete {
+    /// The shell to use
+    #[clap(short = 's', long = "shell")]
+    shell: clap_complete::Shell,
 }
 
 #[derive(clap::Parser, Debug)]
-pub struct Debug {
-    /// Output TSV file
-    #[clap(short = 'o', long = "output")]
-    output: Option<std::path::PathBuf>,
-}
+pub struct Convert {}
+
+#[derive(clap::Parser, Debug)]
+pub struct Debug {}
 
 /// Options for the genome build (mutually exclusive)
 #[derive(clap::Parser, std::fmt::Debug)]
@@ -64,7 +71,7 @@ pub enum Genome {
 }
 
 impl Cli {
-    pub fn command(&self) -> &Command {
+    pub fn get_command(&self) -> &Command {
         return &self.command;
     }
 
@@ -85,16 +92,14 @@ impl Cli {
             _ => Genome::Hg38,
         }
     }
-}
 
-impl Convert {
-    pub fn output(&self) -> Option<&PathBuf> {
+    pub fn output(&self) -> Option<&std::path::PathBuf> {
         self.output.as_ref()
     }
 }
 
-impl Debug {
-    pub fn output(&self) -> Option<&PathBuf> {
-        self.output.as_ref()
+impl AutoComplete {
+    pub fn shell(&self) -> Shell {
+        self.shell
     }
 }

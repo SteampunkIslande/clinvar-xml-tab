@@ -19,9 +19,9 @@ pub enum ClinvarXMLTabError {
     #[error(transparent)]
     CSVError(#[from] csv::Error),
 
+    // Quickxml is not used for serde anymore. Roxml is much easier to work with
+    // #[error(transparent)]
+    // SerdeError(#[from] quick_xml::DeError),
     #[error(transparent)]
-    SerdeError(#[from] quick_xml::DeError),
-
-    #[error("Unknown error")]
-    Unknown,
+    RoxmlError(#[from] roxmltree::Error),
 }
