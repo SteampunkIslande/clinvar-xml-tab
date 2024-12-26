@@ -1,16 +1,23 @@
 use super::error::ClinvarXMLTabError;
 use quick_xml::de::Deserializer;
 use serde::Deserialize;
+use serde::Serialize;
 
 use crate::cli::Genome;
 
 #[derive(Debug, Deserialize)]
 pub struct ClinVarSet {
-    #[serde(rename = "ReferenceClinVarAssertion")]
-    reference_clinvar_assertion: ReferenceClinVarAssertion,
+    #[serde(rename = "RecordStatus")]
+    record_status: String,
 
     #[serde(rename = "Title")]
     title: String,
+
+    #[serde(rename = "ReferenceClinVarAssertion")]
+    reference_clinvar_assertion: ReferenceClinVarAssertion,
+
+    #[serde(rename = "@ID")]
+    id: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -27,40 +34,25 @@ struct ReferenceClinVarAssertion {
     #[serde(rename = "ClinVarAccession")]
     clinvar_accession: ClinVarAccession,
 
+    #[serde(rename = "RecordStatus")]
+    record_status: String,
+
     #[serde(rename = "Classifications")]
     classifications: Classifications,
 
     #[serde(rename = "MeasureSet")]
     measure_set: MeasureSet,
 }
-
-#[derive(Debug, Deserialize)]
-struct Classifications {
-    #[serde(rename = "GermlineClassification")]
-    germline: Vec<GermlineClassification>,
-}
-
 #[derive(Debug, Deserialize)]
 struct ClinVarAccession {
     #[serde(rename = "@Acc")]
-    rcv: String,
-}
+    acc: String,
 
-#[derive(Debug, Deserialize)]
-struct GermlineClassification {
-    // #[serde(rename = "Description")]
-    //  description: String,
-    #[serde(rename = "Description")]
-    description: GermlineClassificationDescription,
-}
+    #[serde(rename = "@Version")]
+    version: String,
 
-#[derive(Debug, Deserialize)]
-struct GermlineClassificationDescription {
-    #[serde(rename = "$text")]
-    description: String,
-
-    #[serde(rename = "@DateLastEvaluated")]
-    date_last_evaluated: String,
+    #[serde(rename = "@Type")]
+    acc_type: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -68,8 +60,11 @@ struct MeasureSet {
     #[serde(rename = "Measure")]
     measure: Vec<Measure>,
 
-    #[serde(rename = "@Acc")]
-    acc: String,
+    #[serde(rename = "@ID")]
+    id: String,
+
+    #[serde(rename = "@Type")]
+    measure_set_type: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -80,8 +75,55 @@ struct Measure {
     #[serde(rename = "@ID")]
     id: String,
 
+    #[serde(rename = "Name")]
+    name: Option<Name>,
+
+    #[serde(rename = "AttributeSet")]
+    attribute_set: Vec<AttributeSet>,
+
     #[serde(rename = "SequenceLocation")]
     sequence_location: Vec<Option<SequenceLocation>>,
+}
+
+#[derive(Debug, Deserialize)]
+struct Name {
+    #[serde(rename = "ElementValue")]
+    element_value: ElementValue,
+}
+
+#[derive(Debug, Deserialize)]
+struct ElementValue {
+    #[serde(rename = "$value")]
+    value: String,
+}
+
+#[derive(Debug, Deserialize)]
+struct AttributeSet {
+    #[serde(rename = "Attribute")]
+    attribute: Attribute,
+}
+
+#[derive(Debug, Deserialize)]
+struct Attribute {
+    #[serde(rename = "@Type")]
+    attribute_type: String,
+
+    #[serde(rename = "$value")]
+    value: String,
+}
+#[derive(Debug, Deserialize)]
+struct Classifications {
+    #[serde(rename = "GermlineClassification")]
+    germline: Vec<GermlineClassification>,
+}
+
+#[derive(Debug, Deserialize)]
+struct GermlineClassificationDescription {
+    #[serde(rename = "$text")]
+    description: String,
+
+    #[serde(rename = "@DateLastEvaluated")]
+    date_last_evaluated: String,
 }
 
 #[derive(Debug, Deserialize)]

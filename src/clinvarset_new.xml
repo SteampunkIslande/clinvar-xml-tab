@@ -1,0 +1,342 @@
+<ClinVarSet ID="92148146">
+    <RecordStatus>current</RecordStatus>
+    <Replaces>RCV000049536</Replaces>
+    <Title>NM_000274.4(OAT):c.425-4_429del AND Ornithine aminotransferase deficiency</Title>
+    <ReferenceClinVarAssertion ID="57691" DateLastUpdated="2022-04-23" DateCreated="2013-04-04">
+        <ClinVarAccession Acc="RCV000000188" DateUpdated="2022-04-23" DateCreated="2013-04-04" Version="5" Type="RCV"/>
+        <RecordStatus>current</RecordStatus>
+        <Classifications>
+            <GermlineClassification>
+                <ReviewStatus>no assertion criteria provided</ReviewStatus>
+                <Description DateLastEvaluated="1990-11-01" SubmissionCount="2">Pathogenic/Likely pathogenic</Description>
+            </GermlineClassification>
+        </Classifications>
+        <Assertion Type="variation to disease"/>
+        <ObservedIn>
+            <Sample>
+                <Origin>germline</Origin>
+                <Species TaxonomyId="9606">human</Species>
+                <AffectedStatus>not provided</AffectedStatus>
+            </Sample>
+            <Method>
+                <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData ID="95767317">
+                <Attribute Type="Description">In a patient of Swedish/Danish extraction with gyrate atrophy of the choroid and retina (GACR; 258870), McClatchey et al. (1989, 1990) found deletion of 9 bp in the 3-prime splice site of IVS4, resulting in deletion of exon 5. The mutation was present in compound heterozygous state.</Attribute>
+                <Citation Type="general">
+                    <ID Source="PubMed">2220818</ID>
+                </Citation>
+                <Citation Type="general">
+                    <CitationText>McClatchey, A. I., Kaufmann, D. L., Tobin, A. J., Shih, V. E., Berson, E. L., Gusella, J. F., Ramesh, V. Deletion in the OAT gene causes RNA splicing defect and results in gyrate atrophy. (Abstract) Am. J. Hum. Genet. 45: A206-only, 1989.</CitationText>
+                </Citation>
+            </ObservedData>
+        </ObservedIn>
+        <ObservedIn>
+            <Sample>
+                <Origin>not provided</Origin>
+                <Species TaxonomyId="9606">human</Species>
+                <AffectedStatus>not provided</AffectedStatus>
+                <NumberTested>1</NumberTested>
+            </Sample>
+            <Method>
+                <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData ID="96416160">
+                <Attribute Type="Description">not provided</Attribute>
+            </ObservedData>
+        </ObservedIn>
+        <MeasureSet Type="Variant" ID="165" Acc="VCV000000165" Version="1">
+            <Measure Type="Deletion" ID="15204">
+                <Name>
+                    <ElementValue Type="Preferred">NM_000274.4(OAT):c.425-4_429del</ElementValue>
+                </Name>
+                <CanonicalSPDI>NC_000010.11:124408632:CACTCCTATCA:CA</CanonicalSPDI>
+                <AttributeSet>
+                    <Attribute Type="FunctionalConsequence">exon loss</Attribute>
+                    <XRef ID="0381" DB="Variation Ontology"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="LRG_685t1" Type="HGVS, coding, LRG">LRG_685t1:c.425_520del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322974" Version="2" Change="c.-290-4_-286del" Type="HGVS, coding, RefSeq">NM_001322974.2:c.-290-4_-286del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001171814" Version="2" Change="c.11-4_15del" Type="HGVS, coding, RefSeq">NM_001171814.2:c.11-4_15del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322971" Version="2" Change="c.200-3078_200-3070del" Type="HGVS, coding, RefSeq">NM_001322971.2:c.200-3078_200-3070del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_000274" Version="4" Change="c.425-4_429del" Type="HGVS, coding, RefSeq" MANESelect="true">NM_000274.4:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322965" Version="2" Change="c.425-4_429del" Type="HGVS, coding, RefSeq">NM_001322965.2:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322966" Version="2" Change="c.425-4_429del" Type="HGVS, coding, RefSeq">NM_001322966.2:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322967" Version="2" Change="c.425-4_429del" Type="HGVS, coding, RefSeq">NM_001322967.2:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322968" Version="2" Change="c.425-4_429del" Type="HGVS, coding, RefSeq">NM_001322968.2:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322969" Version="2" Change="c.425-4_429del" Type="HGVS, coding, RefSeq">NM_001322969.2:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_001322970" Version="2" Change="c.425-4_429del" Type="HGVS, coding, RefSeq">NM_001322970.2:c.425-4_429del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="LRG_685" Type="HGVS, genomic, LRG">LRG_685:g.15310_15318del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NG_008861" Version="1" Change="g.15310_15318del" Type="HGVS, genomic, RefSeqGene">NG_008861.1:g.15310_15318del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NC_000010" Version="11" Change="g.124408635_124408643del" Type="HGVS, genomic, top level" integerValue="38">NC_000010.11:g.124408635_124408643del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NC_000010" Version="11" Change="g.124408634_124408642del" Type="HGVS, genomic, top level, other" integerValue="38">NC_000010.11:g.124408634_124408642del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NC_000010" Version="10" Change="g.126097204_126097212del" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000010.10:g.126097204_126097212del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NM_000274" Version="3" Change="c.425_520del" Type="HGVS, previous">NM_000274.3:c.425_520del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="HGVS, protein"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="HGVS, protein"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Accession="NP_000265" Version="1" Change="p.Gly142_Ala173del" Type="HGVS, protein, RefSeq">NP_000265.1:p.Gly142_Ala173del</Attribute>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">intron variant</Attribute>
+                    <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322971.2:c.200-3078_200-3070del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_000274.4:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001171814.2:c.11-4_15del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322965.2:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322966.2:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322967.2:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322968.2:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322969.2:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322970.2:c.425-4_429del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+                    <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+                    <XRef ID="NM_001322974.2:c.-290-4_-286del" DB="RefSeq"/>
+                </AttributeSet>
+                <AttributeSet>
+                    <Attribute Type="nucleotide change">EX5DEL</Attribute>
+                </AttributeSet>
+                <CytogeneticLocation>10q26.13</CytogeneticLocation>
+                <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="10" Accession="NC_000010.11" start="124408633" stop="124408641" display_start="124408633" display_stop="124408641" variantLength="9" positionVCF="124408632" referenceAlleleVCF="CCACTCCTAT" alternateAlleleVCF="C"/>
+                <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="10" Accession="NC_000010.10" start="126097202" stop="126097210" display_start="126097202" display_stop="126097210" variantLength="9" positionVCF="126097201" referenceAlleleVCF="CCACTCCTAT" alternateAlleleVCF="C"/>
+                <MeasureRelationship Type="within single gene">
+                    <Name>
+                        <ElementValue Type="Preferred">ornithine aminotransferase</ElementValue>
+                    </Name>
+                    <Symbol>
+                        <ElementValue Type="Preferred">OAT</ElementValue>
+                    </Symbol>
+                    <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="10" Accession="NC_000010.11" start="124397303" stop="124418923" display_start="124397303" display_stop="124418923" Strand="-"/>
+                    <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="10" Accession="NC_000010.10" start="126085871" stop="126107544" display_start="126085871" display_stop="126107544" variantLength="21674" Strand="-"/>
+                    <XRef ID="4942" DB="Gene"/>
+                    <XRef Type="MIM" ID="613349" DB="OMIM"/>
+                    <XRef ID="HGNC:8091" DB="HGNC"/>
+                </MeasureRelationship>
+                <Citation Type="general">
+                    <ID Source="PubMed">2220818</ID>
+                </Citation>
+                <XRef Type="Allelic variant" ID="613349.0022" DB="OMIM"/>
+                <XRef Type="rs" ID="386833609" DB="dbSNP"/>
+                <Comment DataSource="NCBI curation" Type="public">NCBI staff reviewed the sequence information reported in PubMed 2220818 Fig. 2 to determine the location of this allele on the current reference sequence.</Comment>
+                <Comment DataSource="NCBI curation" Type="LocationOnGenomeAndProductNotAligned">9-bp deletion spanning 3'-acceptor of exon 4 causes skipping of exon 4 in NM_000274.3.</Comment>
+            </Measure>
+            <Name>
+                <ElementValue Type="Preferred">NM_000274.4(OAT):c.425-4_429del</ElementValue>
+            </Name>
+            <XRef ID="CA113968" DB="ClinGen"/>
+        </MeasureSet>
+        <TraitSet Type="Disease" ID="59">
+            <Trait ID="1408" Type="Disease">
+                <Name>
+                    <ElementValue Type="Preferred">Ornithine aminotransferase deficiency</ElementValue>
+                    <XRef ID="Ornithine+aminotransferase+deficiency/5411" DB="Genetic Alliance"/>
+                    <XRef ID="MONDO:0009796" DB="MONDO"/>
+                    <XRef ID="276426004" DB="SNOMED CT"/>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">OAT deficiency</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Ornithine ketoacid aminotransferase deficiency</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Gyrate atrophy</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">OKT deficiency</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Hyperornithinemia with gyrate atrophy of choroid and retina</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Girate atrophy of the retina</ElementValue>
+                </Name>
+                <Name>
+                    <ElementValue Type="Alternate">Gyrate atrophy of choroid and retina</ElementValue>
+                </Name>
+                <Symbol>
+                    <ElementValue Type="Preferred">GACR</ElementValue>
+                    <XRef Type="MIM" ID="258870" DB="OMIM"/>
+                </Symbol>
+                <Symbol>
+                    <ElementValue Type="Alternate">HOGA</ElementValue>
+                    <XRef Type="MIM" ID="258870" DB="OMIM"/>
+                </Symbol>
+                <XRef ID="MONDO:0009796" DB="MONDO"/>
+                <XRef ID="C0018425" DB="MedGen"/>
+                <XRef ID="414" DB="Orphanet"/>
+                <XRef Type="MIM" ID="258870" DB="OMIM"/>
+            </Trait>
+        </TraitSet>
+    </ReferenceClinVarAssertion>
+    <ClinVarAssertion ID="20331">
+        <ClinVarSubmissionID localKey="613349.0022_GYRATE ATROPHY OF CHOROID AND RETINA" submitter="OMIM" submitterDate="2018-02-01" title="OAT, EX5DEL_GYRATE ATROPHY OF CHOROID AND RETINA"/>
+        <ClinVarAccession Acc="SCV000020331" DateCreated="2013-04-04" DateUpdated="2018-02-04" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary"/>
+        <RecordStatus>current</RecordStatus>
+        <Classification DateLastEvaluated="1990-11-01">
+            <ReviewStatus>no assertion criteria provided</ReviewStatus>
+            <GermlineClassification>Pathogenic</GermlineClassification>
+        </Classification>
+        <Assertion Type="variation to disease"/>
+        <ExternalID DB="OMIM" ID="613349.0022" Type="Allelic variant"/>
+        <ObservedIn>
+            <Sample>
+                <Origin>germline</Origin>
+                <Species>human</Species>
+                <AffectedStatus>not provided</AffectedStatus>
+            </Sample>
+            <Method>
+                <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData>
+                <Attribute Type="Description">In a patient of Swedish/Danish extraction with gyrate atrophy of the choroid and retina (GACR; 258870), McClatchey et al. (1989, 1990) found deletion of 9 bp in the 3-prime splice site of IVS4, resulting in deletion of exon 5. The mutation was present in compound heterozygous state.</Attribute>
+                <Citation>
+                    <CitationText>McClatchey, A. I., Kaufmann, D. L., Tobin, A. J., Shih, V. E., Berson, E. L., Gusella, J. F., Ramesh, V. Deletion in the OAT gene causes RNA splicing defect and results in gyrate atrophy. (Abstract) Am. J. Hum. Genet. 45: A206-only, 1989.</CitationText>
+                </Citation>
+                <Citation>
+                    <ID Source="PubMed">2220818</ID>
+                </Citation>
+                <XRef DB="OMIM" ID="258870" Type="MIM"/>
+            </ObservedData>
+        </ObservedIn>
+        <MeasureSet Type="Variant">
+            <Measure Type="Variation">
+                <Name>
+                    <ElementValue Type="Preferred">OAT, EX5DEL</ElementValue>
+                </Name>
+                <AttributeSet>
+                    <Attribute Type="NonHGVS">EX5DEL</Attribute>
+                </AttributeSet>
+                <MeasureRelationship Type="variant in gene">
+                    <Symbol>
+                        <ElementValue Type="Preferred">OAT</ElementValue>
+                    </Symbol>
+                </MeasureRelationship>
+                <XRef DB="OMIM" ID="613349.0022" Type="Allelic variant"/>
+            </Measure>
+        </MeasureSet>
+        <TraitSet Type="Disease">
+            <Trait Type="Disease">
+                <Name>
+                    <ElementValue Type="Preferred">GYRATE ATROPHY OF CHOROID AND RETINA</ElementValue>
+                </Name>
+            </Trait>
+        </TraitSet>
+    </ClinVarAssertion>
+    <ClinVarAssertion ID="131331" SubmissionName="FinDis_mutations">
+        <ClinVarSubmissionID localKey="FINDIS870" submitter="Juha Muilu Group; Institute for Molecular Medicine Finland (FIMM)" submitterDate="2013-05-19"/>
+        <ClinVarAccession Acc="SCV000081973" DateCreated="2013-07-24" DateUpdated="2013-07-24" Version="1" Type="SCV" OrgID="500116" OrganizationCategory="laboratory" OrgType="primary"/>
+        <RecordStatus>current</RecordStatus>
+        <Classification>
+            <ReviewStatus>no assertion criteria provided</ReviewStatus>
+            <GermlineClassification>probable-pathogenic</GermlineClassification>
+            <Comment Type="ConvertedByNCBI">Converted during submission to Likely pathogenic.</Comment>
+        </Classification>
+        <Assertion Type="variation to disease"/>
+        <ObservedIn>
+            <Sample>
+                <Origin>not provided</Origin>
+                <Species>human</Species>
+                <AffectedStatus>not provided</AffectedStatus>
+                <NumberTested>1</NumberTested>
+            </Sample>
+            <Method>
+                <MethodType>not provided</MethodType>
+            </Method>
+            <ObservedData>
+                <Attribute Type="Description">not provided</Attribute>
+            </ObservedData>
+        </ObservedIn>
+        <MeasureSet Type="Variant">
+            <Measure Type="Variation">
+                <AttributeSet>
+                    <Attribute Type="HGVS">NM_000274.3:c.425-5_428del</Attribute>
+                </AttributeSet>
+                <Citation Type="general">
+                    <ID Source="PubMed">2220818</ID>
+                </Citation>
+            </Measure>
+        </MeasureSet>
+        <TraitSet Type="Disease">
+            <Trait Type="Disease">
+                <Name>
+                    <ElementValue Type="Preferred">Ornithine aminotransferase deficiency</ElementValue>
+                </Name>
+                <XRef DB="OMIM" ID="258870" Type="MIM"/>
+            </Trait>
+        </TraitSet>
+        <Comment Type="public">FinDis database variant: This variant was not found or characterized by our laboratory, data were collected from public sources: see reference</Comment>
+    </ClinVarAssertion>
+</ClinVarSet>

@@ -11,7 +11,10 @@ pub enum ClinvarXMLTabError {
     QuickXMLError(#[from] quick_xml::Error),
 
     #[error(transparent)]
-    Utf8Error(#[from] std::string::FromUtf8Error),
+    Utf8Error(#[from] std::str::Utf8Error),
+
+    #[error(transparent)]
+    SerdeJsonError(#[from] serde_json::Error),
 
     #[error(transparent)]
     CSVError(#[from] csv::Error),

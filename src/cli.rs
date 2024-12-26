@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 #[derive(clap::Parser, std::fmt::Debug)]
 #[command(
     name = "clinvar-xml-tab",
@@ -5,18 +7,42 @@
     version,
     about = "Convert XML clinvar files to tab separated values"
 )]
-pub struct Command {
+pub struct Cli {
     /// Input XML file
     #[clap(short = 'i', long = "input")]
     input: Option<std::path::PathBuf>,
 
-    /// Output TSV file
-    #[clap(short = 'o', long = "output")]
-    output: Option<std::path::PathBuf>,
-
     /// Genome build
     #[clap(flatten)]
     genome: GenomeOption,
+
+    #[command(subcommand)]
+    command: Command,
+}
+
+#[derive(clap::Subcommand, Debug)]
+pub enum Command {
+    /// Convert XML to TSV
+    #[clap(name = "convert")]
+    Convert(Convert),
+
+    /// Only print out the very first XML element of input
+    #[clap(name = "debug")]
+    Debug(Debug),
+}
+
+#[derive(clap::Parser, Debug)]
+pub struct Convert {
+    /// Output TSV file
+    #[clap(short = 'o', long = "output")]
+    output: Option<std::path::PathBuf>,
+}
+
+#[derive(clap::Parser, Debug)]
+pub struct Debug {
+    /// Output TSV file
+    #[clap(short = 'o', long = "output")]
+    output: Option<std::path::PathBuf>,
 }
 
 /// Options for the genome build (mutually exclusive)
@@ -37,13 +63,13 @@ pub enum Genome {
     Hg38,
 }
 
-impl Command {
-    pub fn input(&self) -> Option<&std::path::PathBuf> {
-        self.input.as_ref()
+impl Cli {
+    pub fn command(&self) -> &Command {
+        return &self.command;
     }
 
-    pub fn output(&self) -> Option<&std::path::PathBuf> {
-        self.output.as_ref()
+    pub fn input(&self) -> Option<&std::path::PathBuf> {
+        self.input.as_ref()
     }
 
     pub fn genome(&self) -> Genome {
@@ -58,5 +84,17 @@ impl Command {
             } => Genome::Hg38,
             _ => Genome::Hg38,
         }
+    }
+}
+
+impl Convert {
+    pub fn output(&self) -> Option<&PathBuf> {
+        self.output.as_ref()
+    }
+}
+
+impl Debug {
+    pub fn output(&self) -> Option<&PathBuf> {
+        self.output.as_ref()
     }
 }
