@@ -71,7 +71,7 @@ pub enum Genome {
 }
 
 impl Cli {
-    pub fn get_command(&self) -> &Command {
+    pub fn command(&self) -> &Command {
         return &self.command;
     }
 

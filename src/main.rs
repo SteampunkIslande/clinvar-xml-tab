@@ -7,7 +7,6 @@ pub mod utils;
 use quick_xml::events::{BytesStart, Event};
 use quick_xml::{Reader, Writer};
 
-use clap::CommandFactory;
 use clap_complete::aot::generate;
 
 use std::io::BufRead;
@@ -162,7 +161,7 @@ fn auto_complete(
     _args: &cli::Cli,
     subparams: &cli::AutoComplete,
 ) -> Result<(), error::ClinvarXMLTabError> {
-    let mut command = cli::Cli::command();
+    let mut command = <cli::Cli as clap::CommandFactory>::command();
     let command_name = command.get_name().to_string();
     let gen = subparams.shell();
 
@@ -191,7 +190,7 @@ fn auto_complete(
 fn main() -> Result<(), error::ClinvarXMLTabError> {
     let args = cli::Cli::parse();
 
-    match args.get_command() {
+    match args.command() {
         cli::Command::Convert(subparams) => convert(&args, subparams)?,
         cli::Command::Debug(subparams) => debug(&args, subparams)?,
         cli::Command::AutoComplete(subparams) => auto_complete(&args, subparams)?,
