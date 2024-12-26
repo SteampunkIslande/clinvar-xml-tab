@@ -1,14 +1,30 @@
 # Install
 
+## Download
+
 ```bash
 git clone https://github.com/SteampunkIslande/clinvar-xml-tab
 # OR
 git clone git@github.com:SteampunkIslande/clinvar-xml-tab.git
 ```
 
+## Install
+
 ```bash
-cargo build --release .
+cargo install --path .
 ```
+
+## Add auto-completion for your shell
+
+If you're using [oh-my-zsh](https://ohmyz.sh), you're in luck! Just run:
+
+```bash
+clinvar-xml-tab autocomplete --shell zsh
+```
+and it will (over)write autocompletions for your shell into `.oh-my-zsh/completions/_clinvar-xml-tab_ZSH`
+
+For other shells, running `clinvar-xml-tab autocomplete --shell {bash, elvish, fish, powershell}` will write autcompletions to stdout.
+If you only need it for the current session, you might as well just source it (the entire stdout is a valid completion script).
 
 # Usage
 
@@ -17,7 +33,13 @@ cargo build --release .
 ```
 Convert XML clinvar files to tab separated values
 
-Usage: clinvar-xml-tab [OPTIONS]
+Usage: clinvar-xml-tab [OPTIONS] <COMMAND>
+
+Commands:
+  convert       Convert XML to TSV
+  debug         Only print out the very first XML element of input
+  autocomplete  Generate Autocompletion
+  help          Print this message or the help of the given subcommand(s)
 
 Options:
   -i, --input <INPUT>    Input XML file
