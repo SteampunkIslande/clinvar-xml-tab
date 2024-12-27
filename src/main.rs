@@ -104,7 +104,7 @@ impl<T: std::io::Write> EventHandler for BasicNodeWriter<T> {
         self.writer.write(
             format!(
                 "{}{} - {} - {}\n",
-                "\t".repeat(depth as usize),
+                "\t".repeat((depth as usize).saturating_sub(1)),
                 current_path.join("."),
                 node.text().unwrap_or("No text"),
                 if node.attributes().len() == 0 {
@@ -167,7 +167,7 @@ fn convert(params: &cli::Cli, _subparams: &cli::Convert) -> Result<(), error::Cl
                     let mut current_path = vec![];
                     let mut handler =
                         BasicNodeWriter::new(writer.into_inner().expect("Cannot get writer"));
-                    node_flatten_treat(&doc.root(), &mut current_path, &mut handler, -1)?;
+                    node_flatten_treat(&doc.root(), &mut current_path, &mut handler, 0)?;
                     break;
                 }
                 _ => (),
