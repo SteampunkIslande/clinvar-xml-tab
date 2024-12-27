@@ -12,7 +12,7 @@ impl EventHandler for RecordHandler {
         node: &roxmltree::Node,
         current_path: &Vec<String>,
         attributes: &std::collections::HashMap<String, String>,
-        depth: i32,
+        depth: u32,
     ) -> Result<(), crate::error::ClinvarXMLTabError> {
         if depth == 2 {
             if node.has_tag_name("RecordStatus") {

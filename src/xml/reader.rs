@@ -1,5 +1,6 @@
 use quick_xml::events::{BytesStart, Event};
 use quick_xml::{Reader, Writer};
+use std::collections::HashMap;
 use std::io::BufRead;
 
 use crate::error::ClinvarXMLTabError;
@@ -37,63 +38,34 @@ fn read_to_end_into_buffer<R: BufRead>(
     }
 }
 
-fn write_flatten_node_to(
+fn note_flatten_treat(
     node: &roxmltree::Node,
     current_path: &mut Vec<String>,
-    writer: &mut dyn std::io::Write,
-) -> std::io::Result<()> {
+    handler: &mut impl handler::EventHandler,
+    depth: u32,
+) -> Result<(), ClinvarXMLTabError> {
     if node.is_element() {
         current_path.push(node.tag_name().name().to_string());
-        writeln!(
-            writer,
-            "::{} - {} - {}",
-            current_path.join("."),
-            node.text().unwrap_or("No text").trim(),
-            if node.attributes().len() == 0 {
-                "No attributes".to_string()
-            } else {
-                node.attributes()
-                    .map(|f| format!("{}={}", f.name(), f.value()))
-                    .collect::<Vec<String>>()
-                    .join(" ")
-            }
-        )?;
+        let attributes: HashMap<String, String> = node
+            .attributes()
+            .map(|att| (att.name().to_string(), att.value().to_string()))
+            .collect();
+        handler.handle(node, current_path, &attributes, depth)?;
         for child in node.children() {
-            write_flatten_node_to(&child, current_path, writer)?;
+            note_flatten_treat(&child, current_path, handler, depth + 1)?;
         }
         current_path.pop();
     } else {
         for child in node.children() {
-            write_flatten_node_to(&child, current_path, writer)?;
+            note_flatten_treat(&child, current_path, handler, depth + 1)?;
         }
     }
     Ok(())
 }
 
-// fn node_flatten_treat(
-//     node: &roxmltree::Node,
-//     current_path: &mut Vec<String>,
-//     handler: &mut impl handler::EventHandler,
-//     depth: i32,
-// ) -> Result<(), ClinvarXMLTabError> {
-//     current_path.push(node.tag_name().name().to_string());
-//     if node.is_element() {
-//         let attributes: HashMap<String, String> = node
-//             .attributes()
-//             .map(|att| (att.name().to_string(), att.value().to_string()))
-//             .collect();
-//         handler.handle(node, current_path, &attributes, depth)?;
-//     }
-//     for child in node.children() {
-//         node_flatten_treat(&child, current_path, handler, depth + 1)?;
-//     }
-//     current_path.pop();
-//     Ok(())
-// }
-
 pub fn read_xml(
     reader: impl std::io::BufRead,
-    _handler: &mut impl handler::EventHandler,
+    handler: &mut impl handler::EventHandler,
     limit: Option<u64>,
 ) -> Result<(), ClinvarXMLTabError> {
     let mut reader = Reader::from_reader(reader);
@@ -119,10 +91,7 @@ pub fn read_xml(
 
                     let str = std::str::from_utf8(&elem_bytes)?.to_string();
                     let doc = roxmltree::Document::parse(&str)?;
-                    // node_flatten_treat(&doc.root(), &mut current_path, handler, 0)?;
-                    eprintln!("Writing");
-                    write_flatten_node_to(&doc.root(), &mut current_path, &mut std::io::stdout())?;
-                    eprintln!("Done");
+                    note_flatten_treat(&doc.root(), &mut current_path, handler, 0)?;
                     count += 1;
                     if let Some(limit) = limit {
                         if count >= limit {

@@ -7,7 +7,7 @@ pub trait EventHandler {
         node: &roxmltree::Node,
         current_path: &Vec<String>,
         attributes: &HashMap<String, String>,
-        depth: i32,
+        depth: u32,
     ) -> Result<(), ClinvarXMLTabError>;
 }
 
@@ -27,14 +27,14 @@ impl<T: std::io::Write> EventHandler for BasicNodeWriter<T> {
         node: &roxmltree::Node,
         current_path: &Vec<String>,
         attributes: &HashMap<String, String>,
-        depth: i32,
+        depth: u32,
     ) -> Result<(), ClinvarXMLTabError> {
         self.writer.write(
             format!(
                 "{}{} - {} - {}\n",
                 "\t".repeat((depth as usize).saturating_sub(1)),
                 current_path.join("."),
-                node.text().unwrap_or("No text"),
+                node.text().unwrap_or("No text").trim(),
                 if attributes.len() == 0 {
                     "No attributes".to_string()
                 } else {

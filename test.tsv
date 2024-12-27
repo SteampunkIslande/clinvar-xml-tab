@@ -1,0 +1,214 @@
+ClinVarSet -  - ID=92148140
+	ClinVarSet.RecordStatus - current - No attributes
+	ClinVarSet.Title - NM_000274.4(OAT):c.1311G>C (p.Leu437Phe) AND Ornithine aminotransferase deficiency - No attributes
+	ClinVarSet.ReferenceClinVarAssertion -  - DateCreated=2013-04-04 DateLastUpdated=2022-04-23 ID=57684
+		ClinVarSet.ReferenceClinVarAssertion.ClinVarAccession - No text - DateCreated=2013-04-04 Version=4 Type=RCV DateUpdated=2022-04-23 Acc=RCV000000181
+		ClinVarSet.ReferenceClinVarAssertion.RecordStatus - current - No attributes
+		ClinVarSet.ReferenceClinVarAssertion.Classifications -  - No attributes
+			ClinVarSet.ReferenceClinVarAssertion.Classifications.GermlineClassification -  - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.Classifications.GermlineClassification.ReviewStatus - no assertion criteria provided - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.Classifications.GermlineClassification.Description - Benign - SubmissionCount=1 DateLastEvaluated=1992-02-15
+		ClinVarSet.ReferenceClinVarAssertion.Assertion - No text - Type=variation to disease
+		ClinVarSet.ReferenceClinVarAssertion.ObservedIn -  - No attributes
+			ClinVarSet.ReferenceClinVarAssertion.ObservedIn.Sample -  - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.ObservedIn.Sample.Origin - germline - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.ObservedIn.Sample.Species - human - TaxonomyId=9606
+				ClinVarSet.ReferenceClinVarAssertion.ObservedIn.Sample.AffectedStatus - not provided - No attributes
+			ClinVarSet.ReferenceClinVarAssertion.ObservedIn.Method -  - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.ObservedIn.Method.MethodType - literature only - No attributes
+			ClinVarSet.ReferenceClinVarAssertion.ObservedIn.ObservedData -  - ID=96275323
+				ClinVarSet.ReferenceClinVarAssertion.ObservedIn.ObservedData.Attribute - In an English patient with gyrate atrophy of the choroid and retina (GACR; 258870), Brody et al. (1992) identified 2 mutations on the same allele of the OAT gene: one was a C-to-T transition at nucleotide 1250, resulting in a pro417-to-leu substitution (613349.0012), and the other was a leu437-to-phe (L437F; 613349.0013) substitution. Brody et al. (1992) suggested that L437F is neutral and in linkage disequilibrium with the pathologic P417L mutation. - Type=Description
+				ClinVarSet.ReferenceClinVarAssertion.ObservedIn.ObservedData.Citation -  - Type=general
+					ClinVarSet.ReferenceClinVarAssertion.ObservedIn.ObservedData.Citation.ID - 1737786 - Source=PubMed
+		ClinVarSet.ReferenceClinVarAssertion.MeasureSet -  - Version=1 Acc=VCV000000158 ID=158 Type=Variant
+			ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure -  - ID=15197 Type=single nucleotide variant
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.Name.ElementValue - NM_000274.4(OAT):c.1311G>C (p.Leu437Phe) - Type=Preferred
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.CanonicalSPDI - NC_000010.11:124397950:C:G - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_000274.4:c.1311G>C - Accession=NM_000274 Version=4 MANESelect=true Change=c.1311G>C Type=HGVS, coding, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322965.2:c.1311G>C - Accession=NM_001322965 Version=2 Type=HGVS, coding, RefSeq Change=c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322966.2:c.1311G>C - Version=2 Change=c.1311G>C Accession=NM_001322966 Type=HGVS, coding, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322967.2:c.1311G>C - Version=2 Change=c.1311G>C Accession=NM_001322967 Type=HGVS, coding, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322968.2:c.1311G>C - Version=2 Type=HGVS, coding, RefSeq Accession=NM_001322968 Change=c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322969.2:c.1311G>C - Version=2 Change=c.1311G>C Accession=NM_001322969 Type=HGVS, coding, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322970.2:c.1311G>C - Accession=NM_001322970 Type=HGVS, coding, RefSeq Version=2 Change=c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322974.2:c.711G>C - Accession=NM_001322974 Change=c.711G>C Version=2 Type=HGVS, coding, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001171814.2:c.897G>C - Version=2 Change=c.897G>C Type=HGVS, coding, RefSeq Accession=NM_001171814
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NM_001322971.2:c.990G>C - Accession=NM_001322971 Change=c.990G>C Type=HGVS, coding, RefSeq Version=2
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - LRG_685:g.26000G>C - Type=HGVS, genomic, LRG Accession=LRG_685
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NG_008861.1:g.26000G>C - Change=g.26000G>C Type=HGVS, genomic, RefSeqGene Version=1 Accession=NG_008861
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NC_000010.11:g.124397951C>G - Accession=NC_000010 integerValue=38 Change=g.124397951C>G Version=11 Type=HGVS, genomic, top level
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NC_000010.10:g.126086520C>G - Change=g.126086520C>G integerValue=37 Type=HGVS, genomic, top level, previous Version=10 Accession=NC_000010
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - No text - Type=HGVS, protein
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - P04181:p.Leu437Phe - Type=HGVS, protein Accession=P04181 Change=p.Leu437Phe
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309903.1:p.Leu237Phe - Accession=NP_001309903 Type=HGVS, protein, RefSeq Change=p.Leu237Phe Version=1
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001165285.1:p.Leu299Phe - Accession=NP_001165285 Version=1 Change=p.Leu299Phe Type=HGVS, protein, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309900.1:p.Leu330Phe - Type=HGVS, protein, RefSeq Accession=NP_001309900 Version=1 Change=p.Leu330Phe
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_000265.1:p.Leu437Phe - Accession=NP_000265 Version=1 Change=p.Leu437Phe Type=HGVS, protein, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309894.1:p.Leu437Phe - Version=1 Type=HGVS, protein, RefSeq Accession=NP_001309894 Change=p.Leu437Phe
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309895.1:p.Leu437Phe - Accession=NP_001309895 Version=1 Type=HGVS, protein, RefSeq Change=p.Leu437Phe
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309896.1:p.Leu437Phe - Type=HGVS, protein, RefSeq Change=p.Leu437Phe Version=1 Accession=NP_001309896
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309897.1:p.Leu437Phe - Accession=NP_001309897 Change=p.Leu437Phe Version=1 Type=HGVS, protein, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309898.1:p.Leu437Phe - Accession=NP_001309898 Version=1 Change=p.Leu437Phe Type=HGVS, protein, RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - NP_001309899.1:p.Leu437Phe - Type=HGVS, protein, RefSeq Change=p.Leu437Phe Accession=NP_001309899 Version=1
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=RefSeq ID=NM_000274.4:c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=NM_001171814.2:c.897G>C DB=RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=RefSeq ID=NM_001322965.2:c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=RefSeq ID=NM_001322966.2:c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=RefSeq ID=NM_001322967.2:c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=NM_001322968.2:c.1311G>C DB=RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=NM_001322969.2:c.1311G>C DB=RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=Sequence Ontology ID=SO:0001583
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=RefSeq ID=NM_001322970.2:c.1311G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=SO:0001583 DB=Sequence Ontology
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - ID=NM_001322971.2:c.990G>C DB=RefSeq
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - missense variant - Type=MolecularConsequence
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=Sequence Ontology ID=SO:0001583
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.XRef - No text - DB=RefSeq ID=NM_001322974.2:c.711G>C
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - L237F - Type=ProteinChange1LetterCode
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - L299F - Type=ProteinChange1LetterCode
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - L330F - Type=ProteinChange1LetterCode
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - L437F - Type=ProteinChange1LetterCode
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - LEU437PHE - Type=ProteinChange3LetterCode
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.CytogeneticLocation - 10q26.13 - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.SequenceLocation - No text - Chr=10 Accession=NC_000010.11 stop=124397951 display_stop=124397951 positionVCF=124397951 referenceAlleleVCF=C variantLength=1 display_start=124397951 Assembly=GRCh38 alternateAlleleVCF=G start=124397951 AssemblyAccessionVersion=GCF_000001405.38 AssemblyStatus=current
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.SequenceLocation - No text - AssemblyAccessionVersion=GCF_000001405.25 Chr=10 display_start=126086520 positionVCF=126086520 alternateAlleleVCF=G AssemblyStatus=previous display_stop=126086520 referenceAlleleVCF=C Assembly=GRCh37 start=126086520 Accession=NC_000010.10 stop=126086520 variantLength=1
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship -  - Type=within single gene
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.Name -  - No attributes
+						ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.Name.ElementValue - ornithine aminotransferase - Type=Preferred
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.Symbol -  - No attributes
+						ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.Symbol.ElementValue - OAT - Type=Preferred
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.SequenceLocation - No text - Chr=10 display_start=124397303 display_stop=124418923 Strand=- start=124397303 AssemblyStatus=current stop=124418923 Assembly=GRCh38 Accession=NC_000010.11 AssemblyAccessionVersion=GCF_000001405.38
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.SequenceLocation - No text - Accession=NC_000010.10 display_stop=126107544 Chr=10 AssemblyAccessionVersion=GCF_000001405.25 stop=126107544 AssemblyStatus=previous Assembly=GRCh37 display_start=126085871 variantLength=21674 Strand=- start=126085871
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.XRef - No text - ID=4942 DB=Gene
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.XRef - No text - DB=OMIM Type=MIM ID=613349
+					ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.MeasureRelationship.XRef - No text - ID=HGNC:8091 DB=HGNC
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.XRef - No text - ID=P04181#VAR_000586 DB=UniProtKB
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.XRef - No text - DB=OMIM Type=Allelic variant ID=613349.0013
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Measure.XRef - No text - ID=1800456 Type=rs DB=dbSNP
+			ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Name -  - No attributes
+				ClinVarSet.ReferenceClinVarAssertion.MeasureSet.Name.ElementValue - NM_000274.4(OAT):c.1311G>C (p.Leu437Phe) - Type=Preferred
+			ClinVarSet.ReferenceClinVarAssertion.MeasureSet.XRef - No text - DB=ClinGen ID=CA113946
+		ClinVarSet.ReferenceClinVarAssertion.TraitSet -  - Type=Disease ID=59
+			ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait -  - ID=1408 Type=Disease
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - Ornithine aminotransferase deficiency - Type=Preferred
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.XRef - No text - ID=Ornithine+aminotransferase+deficiency/5411 DB=Genetic Alliance
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.XRef - No text - DB=MONDO ID=MONDO:0009796
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.XRef - No text - DB=SNOMED CT ID=276426004
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - OAT deficiency - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - Ornithine ketoacid aminotransferase deficiency - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - Gyrate atrophy - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - OKT deficiency - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - Hyperornithinemia with gyrate atrophy of choroid and retina - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - Girate atrophy of the retina - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Name.ElementValue - Gyrate atrophy of choroid and retina - Type=Alternate
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Symbol -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Symbol.ElementValue - GACR - Type=Preferred
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Symbol.XRef - No text - ID=258870 DB=OMIM Type=MIM
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Symbol -  - No attributes
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Symbol.ElementValue - HOGA - Type=Alternate
+					ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.Symbol.XRef - No text - Type=MIM ID=258870 DB=OMIM
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.XRef - No text - DB=MONDO ID=MONDO:0009796
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.XRef - No text - DB=MedGen ID=C0018425
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.XRef - No text - ID=414 DB=Orphanet
+				ClinVarSet.ReferenceClinVarAssertion.TraitSet.Trait.XRef - No text - DB=OMIM Type=MIM ID=258870
+	ClinVarSet.ClinVarAssertion -  - ID=20324
+		ClinVarSet.ClinVarAssertion.ClinVarSubmissionID - No text - submitter=OMIM localKey=613349.0013_ORNITHINE AMINOTRANSFERASE POLYMORPHISM title=OAT, LEU437PHE_ORNITHINE AMINOTRANSFERASE POLYMORPHISM submitterDate=2018-02-01
+		ClinVarSet.ClinVarAssertion.ClinVarAccession - No text - DateCreated=2013-04-04 Type=SCV OrgID=3 Acc=SCV000020324 DateUpdated=2018-02-04 OrgType=primary Version=3 OrganizationCategory=resource
+		ClinVarSet.ClinVarAssertion.RecordStatus - current - No attributes
+		ClinVarSet.ClinVarAssertion.Classification -  - DateLastEvaluated=1992-02-15
+			ClinVarSet.ClinVarAssertion.Classification.ReviewStatus - no assertion criteria provided - No attributes
+			ClinVarSet.ClinVarAssertion.Classification.GermlineClassification - Benign - No attributes
+		ClinVarSet.ClinVarAssertion.Assertion - No text - Type=variation to disease
+		ClinVarSet.ClinVarAssertion.ExternalID - No text - ID=613349.0013 Type=Allelic variant DB=OMIM
+		ClinVarSet.ClinVarAssertion.ObservedIn -  - No attributes
+			ClinVarSet.ClinVarAssertion.ObservedIn.Sample -  - No attributes
+				ClinVarSet.ClinVarAssertion.ObservedIn.Sample.Origin - germline - No attributes
+				ClinVarSet.ClinVarAssertion.ObservedIn.Sample.Species - human - No attributes
+				ClinVarSet.ClinVarAssertion.ObservedIn.Sample.AffectedStatus - not provided - No attributes
+			ClinVarSet.ClinVarAssertion.ObservedIn.Method -  - No attributes
+				ClinVarSet.ClinVarAssertion.ObservedIn.Method.MethodType - literature only - No attributes
+			ClinVarSet.ClinVarAssertion.ObservedIn.ObservedData -  - No attributes
+				ClinVarSet.ClinVarAssertion.ObservedIn.ObservedData.Attribute - In an English patient with gyrate atrophy of the choroid and retina (GACR; 258870), Brody et al. (1992) identified 2 mutations on the same allele of the OAT gene: one was a C-to-T transition at nucleotide 1250, resulting in a pro417-to-leu substitution (613349.0012), and the other was a leu437-to-phe (L437F; 613349.0013) substitution. Brody et al. (1992) suggested that L437F is neutral and in linkage disequilibrium with the pathologic P417L mutation. - Type=Description
+				ClinVarSet.ClinVarAssertion.ObservedIn.ObservedData.Citation -  - No attributes
+					ClinVarSet.ClinVarAssertion.ObservedIn.ObservedData.Citation.ID - 1737786 - Source=PubMed
+				ClinVarSet.ClinVarAssertion.ObservedIn.ObservedData.XRef - No text - ID=258870 Type=MIM DB=OMIM
+		ClinVarSet.ClinVarAssertion.MeasureSet -  - Type=Variant
+			ClinVarSet.ClinVarAssertion.MeasureSet.Measure -  - Type=Variation
+				ClinVarSet.ClinVarAssertion.MeasureSet.Measure.Name -  - No attributes
+					ClinVarSet.ClinVarAssertion.MeasureSet.Measure.Name.ElementValue - OAT, LEU437PHE - Type=Preferred
+				ClinVarSet.ClinVarAssertion.MeasureSet.Measure.AttributeSet -  - No attributes
+					ClinVarSet.ClinVarAssertion.MeasureSet.Measure.AttributeSet.Attribute - LEU437PHE - Type=NonHGVS
+				ClinVarSet.ClinVarAssertion.MeasureSet.Measure.MeasureRelationship -  - Type=variant in gene
+					ClinVarSet.ClinVarAssertion.MeasureSet.Measure.MeasureRelationship.Symbol -  - No attributes
+						ClinVarSet.ClinVarAssertion.MeasureSet.Measure.MeasureRelationship.Symbol.ElementValue - OAT - Type=Preferred
+				ClinVarSet.ClinVarAssertion.MeasureSet.Measure.XRef - No text - ID=613349.0013 Type=Allelic variant DB=OMIM
+		ClinVarSet.ClinVarAssertion.TraitSet -  - Type=Disease
+			ClinVarSet.ClinVarAssertion.TraitSet.Trait -  - Type=Disease
+				ClinVarSet.ClinVarAssertion.TraitSet.Trait.Name -  - No attributes
+					ClinVarSet.ClinVarAssertion.TraitSet.Trait.Name.ElementValue - ORNITHINE AMINOTRANSFERASE POLYMORPHISM - Type=Preferred
