@@ -9,6 +9,8 @@ pub trait EventHandler {
         attributes: &HashMap<String, String>,
         depth: u32,
     ) -> Result<(), ClinvarXMLTabError>;
+
+    fn end_record(&mut self) -> Result<(), ClinvarXMLTabError>;
 }
 
 pub struct BasicNodeWriter<T: std::io::Write> {
@@ -21,6 +23,8 @@ impl<W: std::io::Write> BasicNodeWriter<W> {
     }
 }
 
+/// This BasicNodeWriter implementation simply writes every node with their complete path, along with their attributes if any.
+/// This `EventHandler` can be instantiated from anything that implements `std::io::Write`.
 impl<T: std::io::Write> EventHandler for BasicNodeWriter<T> {
     fn handle(
         &mut self,
@@ -47,6 +51,9 @@ impl<T: std::io::Write> EventHandler for BasicNodeWriter<T> {
             )
             .as_bytes(),
         )?;
+        Ok(())
+    }
+    fn end_record(&mut self) -> Result<(), ClinvarXMLTabError> {
         Ok(())
     }
 }

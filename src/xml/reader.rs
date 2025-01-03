@@ -92,6 +92,21 @@ pub fn read_xml(
                     let str = std::str::from_utf8(&elem_bytes)?.to_string();
                     let doc = roxmltree::Document::parse(&str)?;
                     note_flatten_treat(&doc.root(), &mut current_path, handler, 0)?;
+                    match handler.end_record() {
+                        Ok(()) => Ok(()),
+                        Err(e) => match e {
+                            ClinvarXMLTabError::CSVError(e) => match e.kind() {
+                                csv::ErrorKind::Io(io_err) => match io_err.kind() {
+                                    std::io::ErrorKind::BrokenPipe => {
+                                        break;
+                                    }
+                                    _ => Err(ClinvarXMLTabError::from(e)),
+                                },
+                                _ => Err(ClinvarXMLTabError::from(e)),
+                            },
+                            _ => Err(e),
+                        },
+                    }?;
                     count += 1;
                     if let Some(limit) = limit {
                         if count >= limit {

@@ -20,7 +20,7 @@ fn convert(
     let in_stream = utils::file_reader(params.input())?;
     let out_stream = utils::file_writer(params.output())?;
 
-    let mut handler = clinvar_xml_tab::handler::BasicNodeWriter::new(out_stream);
+    let mut handler = clinvar_xml_tab::clinvar::record::RecordHandler::new_from_writer(out_stream);
 
     reader::read_xml(in_stream, &mut handler, None)?;
 
