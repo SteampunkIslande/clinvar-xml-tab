@@ -36,7 +36,7 @@ Convert XML clinvar files to tab separated values
 Usage: clinvar-xml-tab [OPTIONS] <COMMAND>
 
 Commands:
-  convert       Convert XML to TSV
+  convert       Convert XML Clinvar to VCF
   debug         Only print out the very first XML element of input
   autocomplete  Generate Autocompletion
   help          Print this message or the help of the given subcommand(s)
@@ -58,17 +58,8 @@ It will automatically detect input compression and desired output format from th
 
 ## After the conversion is done
 
-What you want is a VCF file, right?
-
-So here is a sample duckdb python code to sort the result and write it back to minimal (invalid) VCF records (with only the base header).
-
-```python
-import duckdb as db
-
-db.sql("""COPY ( SELECT * FROM read_csv('clinvar.unsorted.vcf.gz',names=['#CHROM','POS','ID','REF','ALT','QUAL','FILTER','INFO'],header=False) ORDER BY "#CHROM" ASC, POS ASC) TO 'clinvar.vcf.gz' """)
-```
-
-Then it's up to you to use the resulting file to annotate your variants, for instance using snpSift annotate.
+For now, what you're left with is an unsorted VCF file with a far-from-perfect header.
+All that remains is a `bcftools sort` and voilà! You have yourself the latest clinvar vcf file from the official XML release.
 
 # Why clinvar-xml-tab ?
 
@@ -87,8 +78,17 @@ Saw [this project](https://github.com/SeqOne/clinvcf), but unfortunately it does
 On my machine, in release mode, it took:
 
 ```
-194,91s user 0,42s system 99% cpu 3:15,35 total
+435,84s user 0,91s system 99% cpu 7:16,77 total
 ```
+
+## Roadmap
+
+For now, these are the only fields that get outputted by this program:
+
+- CLNACC
+- CLNSIG
+
+These are the ones I'm most interested in. But feel free to open an issue or a pull request if you think it's missing a field.
 
 ## Contribution
 
@@ -96,3 +96,4 @@ All contributions are welcome!
 
 Please feel free to contribute, if you lack a field don't hesitate to create a PR or an issue.
 See `clinvar_set.xml` as an example of a ClinvarSet (which is the minimal repeated unit within the input XML, that I deserialize using quick-xml).
+

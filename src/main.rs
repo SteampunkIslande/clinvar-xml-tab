@@ -4,6 +4,8 @@ pub mod cli;
 // Clap usage
 use clap::Parser;
 
+use noodles_vcf as vcf;
+
 // Clap-complete usage
 use clap_complete::aot::generate;
 use clap_complete::Shell;
@@ -15,12 +17,38 @@ use clinvar_xml_tab::utils;
 
 fn convert(
     params: &cli::Cli,
-    _subparams: &cli::Convert,
+    subparams: &cli::Convert,
 ) -> Result<(), clinvar_xml_tab::error::ClinvarXMLTabError> {
     let in_stream = utils::file_reader(params.input())?;
     let out_stream = utils::file_writer(params.output())?;
 
-    let mut handler = clinvar_xml_tab::clinvar::record::RecordHandler::new_from_writer(out_stream);
+    // let mut handler =
+    //     clinvar_xml_tab::clinvar::record::CSVRecordHandler::new_from_writer(out_stream);
+
+    use vcf::header::record::value::{map::Contig, Map};
+
+    let contig = Map::<Contig>::new();
+
+    let hdr = if let Some(existing_header) = subparams.existing_vcf_header() {
+        let mut vcf_reader = vcf::io::Reader::new(std::io::BufReader::new(std::fs::File::open(
+            existing_header,
+        )?));
+        let header = vcf_reader.read_header()?;
+        header
+    } else {
+        noodles_vcf::Header::builder()
+            .add_contig("chr1", contig)
+            .build()
+    };
+
+    let mut handler = clinvar_xml_tab::clinvar::record::VCFRecordHandler::new_from_writer_unchecked(
+        out_stream,
+        hdr,
+        match params.genome() {
+            cli::Genome::Hg19 => "GRCh37",
+            cli::Genome::Hg38 => "GRCh38",
+        },
+    );
 
     reader::read_xml(in_stream, &mut handler, None)?;
 

@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use clap_complete::Shell;
 
 #[derive(clap::Parser, std::fmt::Debug)]
@@ -26,7 +28,7 @@ pub struct Cli {
 
 #[derive(clap::Subcommand, Debug)]
 pub enum Command {
-    /// Convert XML to TSV
+    /// Convert XML Clinvar to VCF
     #[clap(name = "convert")]
     Convert(Convert),
 
@@ -47,7 +49,12 @@ pub struct AutoComplete {
 }
 
 #[derive(clap::Parser, Debug)]
-pub struct Convert {}
+pub struct Convert {
+    /// Path to an existing VCF header with all the right contigs.
+    /// This program will only add its own info fields.
+    #[clap(long = "existing-vcf-header")]
+    existing_vcf_header: Option<PathBuf>,
+}
 
 #[derive(clap::Parser, Debug)]
 pub struct Debug {}
@@ -75,7 +82,7 @@ impl Cli {
         return &self.command;
     }
 
-    pub fn input(&self) -> Option<&std::path::PathBuf> {
+    pub fn input(&self) -> Option<&PathBuf> {
         self.input.as_ref()
     }
 
@@ -101,5 +108,11 @@ impl Cli {
 impl AutoComplete {
     pub fn shell(&self) -> Shell {
         self.shell
+    }
+}
+
+impl Convert {
+    pub fn existing_vcf_header(&self) -> Option<&PathBuf> {
+        self.existing_vcf_header.as_ref()
     }
 }
