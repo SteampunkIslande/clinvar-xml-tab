@@ -12,6 +12,7 @@ use noodles_vcf as vcf;
 #[derive(Serialize, Default, Clone)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub struct ClinVarRecord {
+    clinvar_id: Option<usize>,
     status: Option<String>,
     replaces: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -130,6 +131,14 @@ impl<W: std::io::Write> EventHandler for VCFRecordHandler<W> {
         _attributes: &std::collections::HashMap<String, String>,
         depth: u32,
     ) -> Result<(), ClinvarXMLTabError> {
+        if depth == 1 {
+            if node.has_tag_name("ClinVarSet") {
+                self.record.clinvar_id = node
+                    .attribute("ID")
+                    .map(|s| s.parse::<usize>().ok())
+                    .flatten();
+            }
+        }
         if depth == 2 {
             if node.has_tag_name("RecordStatus") {
                 self.record.status = Some(node.text().unwrap_or("").to_string());
@@ -185,7 +194,10 @@ impl<W: std::io::Write> EventHandler for VCFRecordHandler<W> {
             {
                 if let Some(genome_assembly) = node.attribute("Assembly") {
                     if genome_assembly == self.assembly {
-                        self.record.chromosome = node.attribute("Chr").map(|s| format!("chr{s}"));
+                        self.record.chromosome = node.attribute("Chr").map(|s| match s {
+                            "MT" => "chrM".to_string(),
+                            _ => format!("chr{s}"),
+                        });
                         self.record.position = node
                             .attribute("positionVCF")
                             .map(|s| s.parse().ok())
@@ -218,6 +230,13 @@ impl<W: std::io::Write> EventHandler for VCFRecordHandler<W> {
                     .clnsig
                     .as_ref()
                     .map(|s| Value::String(s.to_string())),
+            ),
+            (
+                String::from("CLNID"),
+                self.record
+                    .clinvar_id
+                    .as_ref()
+                    .map(|v| Value::Integer(*v as i32)),
             ),
         ]
         .into_iter()
