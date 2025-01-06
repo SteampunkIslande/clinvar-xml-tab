@@ -94,4 +94,5 @@
 ##contig=<ID=chrUn_gl000249,length=38502,assembly=hg19>
 ##INFO=<ID=CLNSIG,Number=1,Type=String,Description="Clinical significance of the variant according to ClinVar">
 ##INFO=<ID=CLNACC,Number=1,Type=String,Description="ClinVar accession number (RCV)">
+##INFO=<ID=CLNID,Number=1,Type=Integer,Description="ClinVar ID">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT
