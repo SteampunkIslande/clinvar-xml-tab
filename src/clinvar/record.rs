@@ -236,7 +236,6 @@ impl<W: std::io::Write> EventHandler for VCFRecordHandler<W> {
                     .set_alternate_bases(vcf::variant::record_buf::AlternateBases::from(vec![
                         alternate.to_string(),
                     ]))
-                    .set_variant_start(noodles_core::Position::MAX)
                     .set_info(info)
                     .build();
                 self.vcf_writer
